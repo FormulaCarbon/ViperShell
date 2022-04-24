@@ -1,9 +1,12 @@
 import os
 
+#change this to the address of the file of your python stuff. replace all \ with /
 projectFolder = "C:/Users/siddh/Documents/Python_projects/"
+#Change this to change commandline prompt
+prompt = "-->"
 
 while 1:
-    x = input("--> ")
+    x = input(prompt)
     if x == 'quit':
         break
     if 'read' in x:
@@ -14,8 +17,8 @@ while 1:
         print("\n")
         print(file.read())
         file.close()
-    if "ex" in x:
-        filename = x[3:]
+    if "run" in x:
+        filename = x[4:]
         filePath = projectFolder+filename
         print("Executing "+filename+"...")
         file = open(filePath, "r")
