@@ -5,6 +5,9 @@ projectFolder = "C:/Users/siddh/Documents/Python_projects/"
 #Change this to change commandline prompt
 prompt = "-->"
 
+print("\n")
+print("ViperShell v0.2 Started. What would you like to do? Use help for a list of commands.")
+
 while 1:
     x = input(prompt)
     if x == 'quit':
@@ -25,6 +28,8 @@ while 1:
         print("\n")
         exec(file.read())
         file.close()
+    if x == "help":
+        print(" quit: exit ViperShell \n read prgmName.py: display contents of a program \n run prgmName.py: run a program \n help: list commands")
     else:
         try:
             y = eval(x)
