@@ -2,7 +2,7 @@ import os
 from colored import fg
 #change this to the address of the file of your python stuff. replace all \ with /
 projectFolder = "C:/Users/siddh/Documents/Python_projects/"
-VSSettings=open(projectFolder+'VSSettings.txt', mode='r')
+VSSettings=open(projectFolder+'ViperShellSettings.txt', mode='r')
 lineNum = 0
 lines = []
 #0 - pass
@@ -54,7 +54,7 @@ while 1:
     if x == "v//:cmdprmpt":
         askprmpt = input('Please type new command prompt: ')
         askcolor = input('Please type new prompt color: ')
-        VSSettings=open(projectFolder+'VSSettings.txt', mode='w')
+        VSSettings=open(projectFolder+'ViperShellSettings.txt', mode='w')
         VSSettings.write(password + '\n' + username + '\n' + askprmpt + '\n' +askcolor)
         print('Restart ViperShell to see changes')
     else:
