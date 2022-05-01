@@ -1,8 +1,9 @@
 import os
-from colored import fg
+from colored import *
 #change this to the address of the file of your python stuff. replace all \ with /
 projectFolder = "C:/Users/siddh/Documents/Python_projects/"
-VSSettings=open(projectFolder+'ViperShellSettings.txt', mode='r')
+IDLEfolder = "C:\\Users\\siddh\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\idlelib\\idle.py"
+VSSettings=open(projectFolder+'VSSettings.txt', mode='r')
 lineNum = 0
 lines = []
 #0 - pass
@@ -18,6 +19,8 @@ username = lines[1]
 prompt = lines[2]
 prmptcolor = fg(lines[3])
 resetcolor = '\033[0m'
+errorHeaderColor = bg('red_1')+fg('white')
+errorColor = fg('red_1') + bg('black')
 VSSettings.close()
 print("\n")
 print("ViperShell v0.3 Started. What would you like to do? Use v//:? for a list of commands")
@@ -28,7 +31,7 @@ while 1:
     if x == 'v//:quit':
         VSSettings.close()
         break
-    if 'v//:read' in x:
+    elif 'v//:read' in x:
         filename = x[9:]
         filePath = projectFolder+filename
         print("Opening "+filename+"...")
@@ -36,7 +39,7 @@ while 1:
         print("\n")
         print(file.read())
         file.close()
-    if "v//:run" in x:
+    elif "v//:run" in x:
         filename = x[8:]
         filePath = projectFolder+filename
         print("Executing "+filename+"...")
@@ -44,19 +47,22 @@ while 1:
         print("\n")
         exec(file.read())
         file.close()
-    if x == "v//:?":
-        print("Opening help menu... \n\n")
-        print(" v//:quit: exit ViperShell \n v//:read prgmName.py: display contents of a program \n v//:run prgmName.py: run a program\n v//:?: list commands \n v//:fileslist: list files in directory")
-    if x == "v//:filelist":
-        print("Displaying file names in directory"+projectFolder+"...\n\n")
+    elif x == "v//:?":
+        print("Opening help menu... \n")
+        print(" v//:quit: exit ViperShell \n v//:read prgmName.py: display contents of a program \n v//:run prgmName.py: run a program\n v//:?: list commands \n v//:fileslist: list files in directory\n v//:cmdprmpt: change command prompt\n v//:openEditor: open new file in IDLE editor")
+    elif x == "v//:filelist":
+        print("Displaying file names in directory "+projectFolder+"...\n\n")
         filelist = os.listdir('C:/Users/siddh/Documents/Python_projects/')
         print(filelist)
-    if x == "v//:cmdprmpt":
+    elif x == "v//:cmdprmpt":
         askprmpt = input('Please type new command prompt: ')
         askcolor = input('Please type new prompt color: ')
-        VSSettings=open(projectFolder+'ViperShellSettings.txt', mode='w')
+        VSSettings=open(projectFolder+'VSSettings.txt', mode='w')
         VSSettings.write(password + '\n' + username + '\n' + askprmpt + '\n' +askcolor)
         print('Restart ViperShell to see changes')
+    elif x == "v//:openeditor":
+        print('Opening IDLE Editor...')
+        os.startfile("C:\\Users\\siddh\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\idlelib\\idle.py")
     else:
         try:
             y = eval(x)
@@ -65,4 +71,5 @@ while 1:
             try:
                 exec(x)
             except Exception as e:
-                print ("error:", e)
+                error = str(e)
+                print (errorHeaderColor +"Error:" + errorColor + ' ' + error + resetcolor)
