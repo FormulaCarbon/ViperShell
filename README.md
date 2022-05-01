@@ -10,3 +10,7 @@ new features:
 
 how to set up:
 1.Copy the files from the 'downlaod these' folder and put them in your python folder. Make sure the file types and names are the same.
+2. type in the following into your command terminal ('py' should be used if you got IDLE from the python website, while 'python' should be used if IDLE was downloaded from the Microsoft Store):
+'''
+py -m pip install colored
+'''
