@@ -2,6 +2,7 @@ import os
 from colored import *
 #change this to the address of the file of your python stuff. replace all \ with /
 projectFolder = "C:/Users/siddh/Documents/Python_projects/"
+IDLEfolder = "C:\\Users\\siddh\\AppData\\Local\\Programs\\Python\\Python39\\Lib\\idlelib\\idle.py"
 VSSettings=open(projectFolder+'VSSettings.txt', mode='r')
 lineNum = 0
 lines = []
