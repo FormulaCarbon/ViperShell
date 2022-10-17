@@ -10,4 +10,5 @@ New features:
 
 Setup:
 1. Create a Folder - It can have any name
-2. In 
+2. Inside the python file, change projectFolder to the complete path to the folder that you just created, replacing all \ with /.
+3. Change IDLEPath to the path of
