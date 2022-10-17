@@ -10,5 +10,7 @@ New features:
 
 Setup:
 1. Create a Folder - It can have any name
-2. Inside the python file, change projectFolder to the complete path to the folder that you just created, replacing all \ with /.
-3. Change IDLEPath to the path of
+2. Inside the python file, change projectFolder to the complete path to the folder that you just created, replacing all \ with /
+3. Change IDLEfolder to the path of idle.py (you may need to go digging in your files)
+4. Place the python file and the text file in the folder created in step one
+5. Install the _colored_ module with `pip install colored`
