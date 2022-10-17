@@ -9,3 +9,5 @@ New features:
 - open new file from shell
 
 Setup:
+1. Create a Folder - It can have any name
+2. In 
